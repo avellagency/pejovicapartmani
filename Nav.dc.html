@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div data-nav="" style="position:fixed;top:14px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 14px;pointer-events:none">
+  <nav style="pointer-events:auto;width:100%;max-width:1200px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(242,239,232,.6);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:1px solid rgba(0,0,0,.08);box-shadow:0 12px 40px rgba(16,25,21,.08);font-family:'Inter Tight',sans-serif;color:#141B18">
+    <a href="index.html" data-label="Dobrodošli" style="display:flex;align-items:baseline;gap:8px;text-decoration:none;color:#141B18">
+      <span style="font:400 26px/1 'Instrument Serif',serif">Pejović</span>
+      <span style="font:500 10px/1 'Inter Tight',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#5E6660">Mojkovac</span>
+    </a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;gap:4px;font-size:14px;font-weight:500">
+        <a href="apartman.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;color:#141B18;text-decoration:none" style-hover="background:rgba(0,0,0,.05)"><sc-if value="{{ isApartment }}"><span style="width:5px;height:5px;border-radius:50%;background:#1F5A50"></span></sc-if><span>Apartman</span></a>
+        <a href="lokacija.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;color:#141B18;text-decoration:none" style-hover="background:rgba(0,0,0,.05)"><sc-if value="{{ isLocation }}"><span style="width:5px;height:5px;border-radius:50%;background:#1F5A50"></span></sc-if><span>Lokacija</span></a>
+        <a href="galerija.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;color:#141B18;text-decoration:none" style-hover="background:rgba(0,0,0,.05)"><sc-if value="{{ isGallery }}"><span style="width:5px;height:5px;border-radius:50%;background:#1F5A50"></span></sc-if><span>Galerija</span></a>
+        <a href="rezervacija.html" style="display:flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;color:#141B18;text-decoration:none" style-hover="background:rgba(0,0,0,.05)"><sc-if value="{{ isBook }}"><span style="width:5px;height:5px;border-radius:50%;background:#1F5A50"></span></sc-if><span>Rezervacija</span></a>
+      </div>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:6px">
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <a href="rezervacija.html" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;padding:8px 8px 8px 20px;border-radius:999px;background:#1F5A50;color:#F2EFE8;font:500 14px/1 'Inter Tight',sans-serif;text-decoration:none" style-hover="background:#174A42"><span>Rezerviši boravak</span><span data-arrow="" style="width:30px;height:30px;border-radius:50%;background:#F2EFE8;color:#1F5A50;display:grid;place-items:center;font-size:14px">→</span></a>
+      </sc-if>
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ openMenu }}" aria-label="Otvori meni" style="width:46px;height:46px;border-radius:50%;border:0;background:#101915;color:#F2EFE8;display:grid;place-items:center;cursor:pointer;font:500 13px/1 'Inter Tight',sans-serif">Meni</button>
+      </sc-if>
+    </div>
+  </nav>
+</div>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:200;background:#101915;color:#F2EFE8;display:flex;flex-direction:column;padding:22px 24px 32px;font-family:'Inter Tight',sans-serif">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <span style="font:400 26px/1 'Instrument Serif',serif">Pejović</span>
+      <button onClick="{{ closeMenu }}" aria-label="Zatvori meni" style="width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,239,232,.2);background:transparent;color:#F2EFE8;cursor:pointer;font-size:18px">✕</button>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px">
+      <a data-mi="" href="index.html" data-label="Dobrodošli" style="font:400 clamp(48px,13vw,84px)/1.05 'Instrument Serif',serif;color:#F2EFE8;text-decoration:none"><span>Početna</span></a>
+      <a data-mi="" href="apartman.html" style="font:400 clamp(48px,13vw,84px)/1.05 'Instrument Serif',serif;color:#F2EFE8;text-decoration:none"><span>Apartman</span></a>
+      <a data-mi="" href="lokacija.html" style="font:400 clamp(48px,13vw,84px)/1.05 'Instrument Serif',serif;color:#F2EFE8;text-decoration:none"><span>Lokacija</span></a>
+      <a data-mi="" href="galerija.html" style="font:400 clamp(48px,13vw,84px)/1.05 'Instrument Serif',serif;color:#F2EFE8;text-decoration:none"><span>Galerija</span></a>
+      <a data-mi="" href="rezervacija.html" style="font:italic 400 clamp(48px,13vw,84px)/1.05 'Instrument Serif',serif;color:#C2A273;text-decoration:none"><span>Rezervacija</span></a>
+    </div>
+    <div data-mi="" style="display:flex;justify-content:space-between;font-size:13px;color:rgba(242,239,232,.7)"><span>Milovana Đilasa 37, Mojkovac</span><span>+382 67 665 121</span></div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;apartment&quot;,&quot;location&quot;,&quot;gallery&quot;,&quot;book&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { w: window.innerWidth, open: false };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); addEventListener('resize', this.onR); }
+  componentWillUnmount() { removeEventListener('resize', this.onR); }
+  componentDidUpdate(_, prev) {
+    if (this.state.open && !prev.open && window.gsap) {
+      window.PJ && window.PJ.scan();
+      gsap.fromTo('[data-mi]', { yPercent: 60, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, ease: 'expo.out', stagger: 0.07 });
+    }
+    const l = window.PJ && window.PJ.lenis; if (l) this.state.open ? l.stop() : l.start();
+  }
+  renderVals() {
+    const p = this.props.page || '', d = this.state.w >= 920;
+    const sr = (window.PJ ? window.PJ.lang() : localStorage.getItem('pj-lang')) === 'sr';
+    return {
+      desktop: d, mobile: !d, open: this.state.open,
+      isApartment: p === 'apartment', isLocation: p === 'location', isGallery: p === 'gallery', isBook: p === 'book',
+      enOp: sr ? 0.4 : 1, srOp: sr ? 1 : 0.4,
+      toggleLang: () => window.PJ && window.PJ.toggleLang(),
+      openMenu: () => this.setState({ open: true }), closeMenu: () => this.setState({ open: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>

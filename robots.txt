@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Nav.dc.html
+Disallow: /Footer.dc.html
+
+Sitemap: https://pejovic-apartmani.github.io/sitemap.xml
